@@ -2,17 +2,32 @@ from functions import *
 import os
 
 directory = "./speeches"
-files_names = list_of_files(directory,"txt")
-print_list(files_names)
+directory2="./cleaned"
+
+#liste des fichier du repertoire initial
+files_names = list_of_files(directory, "txt")
+
+# les noms de fichiers
 listName=extractName(files_names)
+
+#mettre les prénoms
 listSurname=putSurname(listName)
-print_list(listSurname)
 
 for i in range (len(files_names)):
       # concaténation du nom de repertoire et nom de fichier
       x = os.path.join(directory,files_names[i])
-      cleanText(x)
+      # néttoyer les fichier et les mettre dans le repertoire cleaned
+      # recupération du nom de fichier cleaned
+
+      f = x.split("/")[-1]
+      f = f.split("_")[-1]
+      with open(x, 'r', encoding='utf-8') as fileInit:
+          contenu = fileInit.read()
+          contenu_modifie=cleanText(contenu)
+          chemin_sortie = "cleaned/Lower" + f
+          with open(chemin_sortie, 'w', encoding='utf-8') as fileClean:
+              fileClean.write(contenu_modifie)
 
 
-
-
+if __name__ == "__main__":
+    menu_principal()

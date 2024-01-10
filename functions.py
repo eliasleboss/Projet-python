@@ -9,7 +9,7 @@
 import os
 import re
 import math
-
+import time
 
 # création d'une liste des noms de fichier
 def list_of_files(directory, extension):
@@ -591,7 +591,7 @@ def menu1():
             break
         else:
             print("****** Option invalide. Veuillez choisir une option entre 1 et 7.*************")
-
+        time.sleep(5)
 def menu2():
     repertoire = "./cleaned"
     while True:
@@ -717,7 +717,7 @@ def menu2():
 
         else:
             print("****** Option invalide. Veuillez choisir une option entre 1 et 6.*************")
-
+        time.sleep(5)
 
 #*************************************  BONUS ***********************************************
 

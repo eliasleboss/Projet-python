@@ -1,3 +1,12 @@
+#************************************************************************
+# Auteur:  Elias HAFSIA
+
+#  Fichier Main comportant l'ouverture des fichiers
+# le prétaitemant des fichiers
+# la création des nouveaux fichiers cleaned
+# l'appel du Menu Principal
+#*************************************************************************
+
 from functions import *
 import os
 
@@ -24,10 +33,17 @@ for i in range (len(files_names)):
       with open(x, 'r', encoding='utf-8') as fileInit:
           contenu = fileInit.read()
           contenu_modifie=cleanText(contenu)
+          # prétraitement du contenu du fu fichier
           chemin_sortie = "cleaned/Lower" + f
           with open(chemin_sortie, 'w', encoding='utf-8') as fileClean:
               fileClean.write(contenu_modifie)
 
 
+
+
 if __name__ == "__main__":
+    # l'appel du menu principal
     menu_principal()
+
+
+
